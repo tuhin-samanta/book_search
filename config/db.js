@@ -7,7 +7,7 @@ export const db = mysql.createConnection({
   database: process.env.DB_NAME
 });
 
-connection.connect((err) => {
+db.connect((err) => {
   if (err) {
     console.error('Database connection failed:', err.stack);
     return;

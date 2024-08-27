@@ -1,8 +1,9 @@
+import {config as dotenvConfig} from 'dotenv';
 import express from 'express';
 import bodyParser from 'body-parser';
 import {authRoutes, bookRoutes} from './routes/index.js';
 
-require('dotenv').config();
+dotenvConfig()
 
 const app = express();
 const port = process.env.PORT || 3000;
