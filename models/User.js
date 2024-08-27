@@ -1,4 +1,4 @@
-import db from '../config';
+import {db} from '../config/index.js';
 
 export const User = {
   table: 'users',

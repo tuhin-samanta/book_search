@@ -1,6 +1,6 @@
-import db from '../config';
+import {db} from '../config/index.js';
 
-const Book = {
+export const Book = {
   table: 'books',
 
   create(bookData, callback){
@@ -45,5 +45,3 @@ const Book = {
     db.query(sql, params, callback);
   }
 };
-
-module.exports = Book;

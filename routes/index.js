@@ -1,2 +1,2 @@
-export * from './authRoutes';
-export * from './bookRoutes'
+export * from './authRoutes.js';
+export * from './bookRoutes.js'

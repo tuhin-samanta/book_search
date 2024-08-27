@@ -1,6 +1,6 @@
-import Book from '../models/Book';
+import {Book} from '../models/index.js';
 
-exports.addBook = (req, res) => {
+export const addBook = (req, res) => {
   const bookData = req.body;
 
   Book.create(bookData, (err, result) => {
@@ -10,7 +10,7 @@ exports.addBook = (req, res) => {
   });
 };
 
-exports.searchBooks = (req, res) => {
+export const searchBooks = (req, res) => {
   const searchCriteria = req.query;
 
   Book.search(searchCriteria, (err, books) => {

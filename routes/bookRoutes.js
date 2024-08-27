@@ -1,8 +1,8 @@
 import {Router} from 'express';
-import bookController from '../controllers';
+import {addBook, searchBooks} from '../controllers/index.js';
 const router = Router();
 
-router.post('/add-book', bookController.addBook);
-router.get('/books', bookController.searchBooks);
+router.post('/add-book',addBook);
+router.get('/books',searchBooks);
 
 export const bookRoutes = router;

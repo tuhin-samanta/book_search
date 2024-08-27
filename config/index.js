@@ -1,2 +1,2 @@
-export * from './db';
-export * from './installer';
+export * from './db.js';
+export * from './installer.js';
