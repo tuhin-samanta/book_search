@@ -1,4 +1,6 @@
+import {config as dotenvConfig} from 'dotenv';
 import mysql from 'mysql2'
+dotenvConfig()
 
 export const db = mysql.createConnection({
   host: process.env.DB_HOST,
@@ -14,3 +16,9 @@ db.connect((err) => {
   }
   console.log('Connected to database.');
 });
+
+export const tables= {
+  users: 'users',
+  books: 'books',
+  userBooks: 'user_books'
+}

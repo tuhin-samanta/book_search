@@ -1,0 +1,760 @@
+{
+	"info": {
+		"_postman_id": "1a776738-c63c-4bd6-9076-1f06839cfaa0",
+		"name": "Book Store API",
+		"description": "Collection of all API endpoints for the Book Store application.",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "4673163"
+	},
+	"item": [
+		{
+			"name": "Register User",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"username\": \"testuser2\",\n  \"email\": \"tuhin2@test.com\",\n  \"password\": \"Pass3!\"\n}"
+				},
+				"url": {
+					"raw": "{{base_url}}/api/register",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"api",
+						"register"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Register User-duplicate email",
+					"originalRequest": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"username\": \"testuser2\",\n  \"email\": \"tuhin@test.com\",\n  \"password\": \"Password123!\"\n}"
+						},
+						"url": {
+							"raw": "{{base_url}}/api/register",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"api",
+								"register"
+							]
+						}
+					},
+					"status": "Bad Request",
+					"code": 400,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "34"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"22-7E/nw4NTj1wudq/7GNEsO0zIZHQ\""
+						},
+						{
+							"key": "Date",
+							"value": "Wed, 28 Aug 2024 06:33:04 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"message\": \"Email already in use\"\n}"
+				},
+				{
+					"name": "Register User-Success",
+					"originalRequest": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"username\": \"testuser2\",\n  \"email\": \"tuhin2@test.com\",\n  \"password\": \"Password123!\"\n}"
+						},
+						"url": {
+							"raw": "{{base_url}}/api/register",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"api",
+								"register"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "42"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"2a-nMoFx54+czTntmSLXl3mqIsZV4A\""
+						},
+						{
+							"key": "Date",
+							"value": "Wed, 28 Aug 2024 06:33:35 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"message\": \"User registered successfully\"\n}"
+				},
+				{
+					"name": "Register User-Password not secure",
+					"originalRequest": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"username\": \"testuser2\",\n  \"email\": \"tuhin2@test.com\",\n  \"password\": \"Pass3!\"\n}"
+						},
+						"url": {
+							"raw": "{{base_url}}/api/register",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"api",
+								"register"
+							]
+						}
+					},
+					"status": "Bad Request",
+					"code": 400,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "128"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"80-1uZsfQEmH05M2ObMFwJgcJk1Ezg\""
+						},
+						{
+							"key": "Date",
+							"value": "Wed, 28 Aug 2024 06:33:55 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"message\": \"Password must be 8-15 characters long, include uppercase and lowercase letters, a number, and a special character.\"\n}"
+				}
+			]
+		},
+		{
+			"name": "Login User",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"email\": \"test@example.com\",\n  \"password\": \"Password123!\"\n}"
+				},
+				"url": {
+					"raw": "{{base_url}}/api/login",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"api",
+						"login"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Login User-Success",
+					"originalRequest": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"email\": \"tuhin2@test.com\",\n  \"password\": \"Password123!\"\n}"
+						},
+						"url": {
+							"raw": "{{base_url}}/api/login",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"api",
+								"login"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "178"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"b2-bf1YqEK304j6MOpeSLMH2zYX3zc\""
+						},
+						{
+							"key": "Date",
+							"value": "Wed, 28 Aug 2024 06:37:17 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"message\": \"Login successful\",\n    \"token\": \"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MywiaWF0IjoxNzI0ODI3MDM3LCJleHAiOjE3MjQ4MzA2Mzd9.BHA8F8PjWjMlojXuVdN6CFRAzAsVVsCJSbvgckpVMEE\"\n}"
+				},
+				{
+					"name": "Login User-Failed",
+					"originalRequest": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"email\": \"tuhin2@test.com\",\n  \"password\": \"Password1223!\"\n}"
+						},
+						"url": {
+							"raw": "{{base_url}}/api/login",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"api",
+								"login"
+							]
+						}
+					},
+					"status": "Bad Request",
+					"code": 400,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "33"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"21-dBEoW0UmTF+EGUMaprEp9/8zNNA\""
+						},
+						{
+							"key": "Date",
+							"value": "Wed, 28 Aug 2024 06:38:14 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"message\": \"Invalid credentials\"\n}"
+				}
+			]
+		},
+		{
+			"name": "Add Book",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					},
+					{
+						"key": "Authorization",
+						"value": "Bearer {{token}}"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"title\": \"New Book\",\n  \"author\": \"Tuhin Samanta\",\n  \"genre\": \"Unknown\",\n  \"published_date\": \"28/8/2024\",\n  \"description\": \"Lorem Ipsum\",\n  \"isbn\": \"9780743273565\",\n  \"availability\": true\n}"
+				},
+				"url": {
+					"raw": "{{base_url}}/api/add-book",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"api",
+						"add-book"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Add Book",
+					"originalRequest": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer {{token}}"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"title\": \"New Book\",\n  \"author\": \"Tuhin Samanta\",\n  \"genre\": \"Unknown\",\n  \"published_date\": \"28/8/2024\",\n  \"description\": \"Lorem Ipsum\",\n  \"isbn\": \"9780743273565\",\n  \"availability\": true\n}"
+						},
+						"url": {
+							"raw": "{{base_url}}/api/add-book",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"api",
+								"add-book"
+							]
+						}
+					},
+					"status": "Created",
+					"code": 201,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "37"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"25-kDKWnYGQ8Cj+SSjJl+QcGgiqXOk\""
+						},
+						{
+							"key": "Date",
+							"value": "Wed, 28 Aug 2024 06:48:31 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"message\": \"Book added successfully\"\n}"
+				},
+				{
+					"name": "Add Book-Success",
+					"originalRequest": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer {{token}}"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"title\": \"New Book\",\n  \"author\": \"Tuhin Samanta\",\n  \"genre\": \"Unknown\",\n  \"published_date\": \"28/8/2024\",\n  \"description\": \"Lorem Ipsum\",\n  \"isbn\": \"9780743273565\",\n  \"availability\": true\n}"
+						},
+						"url": {
+							"raw": "{{base_url}}/api/add-book",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"api",
+								"add-book"
+							]
+						}
+					},
+					"status": "Created",
+					"code": 201,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "37"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"25-kDKWnYGQ8Cj+SSjJl+QcGgiqXOk\""
+						},
+						{
+							"key": "Date",
+							"value": "Wed, 28 Aug 2024 06:48:31 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"message\": \"Book added successfully\"\n}"
+				},
+				{
+					"name": "Add Book-Need unique ISBN",
+					"originalRequest": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer {{token}}"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"title\": \"New Book\",\n  \"author\": \"Raj Samanta\",\n  \"genre\": \"Unknown\",\n  \"published_date\": \"28/8/2024\",\n  \"description\": \"Lorem Ipsum\",\n  \"isbn\": \"9780743273565\",\n  \"availability\": true\n}"
+						},
+						"url": {
+							"raw": "{{base_url}}/api/add-book",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"api",
+								"add-book"
+							]
+						}
+					},
+					"status": "Internal Server Error",
+					"code": 500,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "33"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"21-KFlpyPEbpYAoBE/DAZcr8A217XI\""
+						},
+						{
+							"key": "Date",
+							"value": "Wed, 28 Aug 2024 07:17:38 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"message\": \"ISBN already exists\"\n}"
+				}
+			]
+		},
+		{
+			"name": "Search Books",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					},
+					{
+						"key": "Authorization",
+						"value": "Bearer {{token}}"
+					}
+				],
+				"url": {
+					"raw": "{{base_url}}/api/books?page=2&page_size=2",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"api",
+						"books"
+					],
+					"query": [
+						{
+							"key": "title",
+							"value": "Gatsby",
+							"disabled": true
+						},
+						{
+							"key": "author",
+							"value": "Tuhin",
+							"disabled": true
+						},
+						{
+							"key": "genre",
+							"value": "Fiction",
+							"disabled": true
+						},
+						{
+							"key": "page",
+							"value": "2"
+						},
+						{
+							"key": "page_size",
+							"value": "2"
+						},
+						{
+							"key": "sort_by",
+							"value": null,
+							"disabled": true
+						},
+						{
+							"key": "sort_order",
+							"value": null,
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Search Books-Success",
+					"originalRequest": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer {{token}}"
+							}
+						],
+						"url": {
+							"raw": "{{base_url}}/api/books",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"api",
+								"books"
+							],
+							"query": [
+								{
+									"key": "title",
+									"value": "",
+									"disabled": true
+								},
+								{
+									"key": "author",
+									"value": "Tuhin",
+									"disabled": true
+								},
+								{
+									"key": "genre",
+									"value": "",
+									"disabled": true
+								},
+								{
+									"key": "page",
+									"value": "1",
+									"disabled": true
+								},
+								{
+									"key": "page_size",
+									"value": "1",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "361"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"169-Eil2e7rIQ4STtDN0fyRyVoMmYoA\""
+						},
+						{
+							"key": "Date",
+							"value": "Wed, 28 Aug 2024 07:10:30 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"books\": [\n        {\n            \"id\": 2,\n            \"title\": \"New Book\",\n            \"author\": \"Tuhin Samanta\",\n            \"genre\": \"Unknown\",\n            \"published_date\": \"1899-11-29T18:38:50.000Z\",\n            \"description\": \"Lorem Ipsum\",\n            \"isbn\": \"9780743273565\",\n            \"availability\": 1,\n            \"created_at\": \"2024-08-28T06:48:31.000Z\",\n            \"updated_at\": null,\n            \"added_by_name\": \"testuser2\",\n            \"added_by_email\": \"tuhin2@test.com\"\n        }\n    ],\n    \"totalPages\": 1,\n    \"currentPage\": 1,\n    \"totalBooks\": 1\n}"
+				}
+			]
+		}
+	],
+	"variable": [
+		{
+			"key": "base_url",
+			"value": "http://localhost:3000"
+		},
+		{
+			"key": "token",
+			"value": ""
+		}
+	]
+}
