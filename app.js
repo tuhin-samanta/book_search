@@ -1,13 +1,12 @@
 import {config as dotenvConfig} from 'dotenv';
 import express from 'express';
-import bodyParser from 'body-parser';
+import cors from 'cors';
 import {authRoutes, bookRoutes} from './routes/index.js';
 import { createTables, dropTables } from './config/index.js';
 
 dotenvConfig()
 
 const app= {
-
   start(){
     if(process.argv[2]==='--install')
     {this.install();}
@@ -28,17 +27,34 @@ const app= {
   },
 
   createServer(){
-    const app = express();
+    const server = express();
     const port = process.env.PORT || 3000;
 
+    const corsList= JSON.parse(process.env.CORS_LIST);
+    if(!Array.isArray(corsList)){
+      throw new Error("CORS list should be an array, please check the env file")
+    }
+
+
+    server.use(cors({
+      origin(origin, callback){
+        if(!origin || corsList.includes(origin)){
+          callback(null, true);
+        }
+        else{
+          callback(new Error("Not allowed by CORS"))
+        }
+      }
+    }));
+
     // Middleware
-    app.use(bodyParser.json());
+    server.use(express.json());
 
     // Routes
-    app.use('/api', authRoutes);
-    app.use('/api', bookRoutes);
+    server.use('/api', authRoutes);
+    server.use('/api', bookRoutes);
 
-    app.listen(port, () => {
+    server.listen(port, () => {
       console.log(`Server running on port ${port}`);
     });
   }
