@@ -17,7 +17,7 @@ Follow these instructions to set up and run the application on your local machin
 1. Clone the repo and nevigate to the root of the appCreate a **.env** file by copying from **.env_dev** and modify the environment variables as needed at the root of the app.
 2. Install Dependencies (CMD): **npm install**
 3. Set up the database tables (CMD): **npm run config**
-4. Start the server: **npm start**
+4. Start the server (CMD): **npm start**
 
 #### API reference documentation
 
